@@ -2,9 +2,17 @@
 
 ## 📌 Descrição do Projeto
 
-Este projeto consiste em uma API REST desenvolvida com Spring Boot para gerenciamento de alunos e professores.
+Este projeto consiste em uma API REST desenvolvida com Spring Boot para gerenciamento de matrículas de alunos.
 
-A aplicação permite realizar operações de CRUD (Create, Read, Update e Delete) para as entidades Aluno e Professor, utilizando banco de dados PostgreSQL.
+A aplicação permite:
+
+- Criar matrículas
+- Listar matrículas
+- Buscar matrícula por ID
+- Atualizar notas
+- Trancar matrícula
+
+Os dados são persistidos em banco PostgreSQL utilizando Spring Data JPA.
 
 ---
 
@@ -16,83 +24,80 @@ A aplicação permite realizar operações de CRUD (Create, Read, Update e Delet
 - Spring Data JPA
 - PostgreSQL
 - Lombok
-- Insomnia (para testes)
-- DBeaver (visualização do banco)
+- Maven
+- Insomnia
+- DBeaver
 
 ---
 
 ## 🧱 Arquitetura do Projeto
 
-O projeto segue o padrão de arquitetura em camadas:
+O projeto segue arquitetura em camadas:
 
-- **Model** → Representa as entidades e tabelas do banco de dados
-- **Repository** → Responsável pelo acesso ao banco de dados
-- **Service** → Contém as regras de negócio
-- **Controller** → Responsável por receber as requisições HTTP
+- Model
+- Repository
+- Service
+- Controller
+- DTO
 
 ---
 
 ## 📂 Estrutura do Projeto
 
-aluno_online
+```text
+src/main/java/aluno_online
+├── config
+├── controller
+├── dtos
 ├── model
 ├── repository
 ├── service
-├── controller
-
+```
 
 ---
 
 ## 🔄 Endpoints da API
 
-### 👨‍🎓 Alunos
+### 📘 Matrículas
 
-- POST `/alunos` → Criar aluno
-- GET `/alunos` → Listar todos os alunos
-- GET `/alunos/{id}` → Buscar aluno por ID
-- PUT `/alunos/{id}` → Atualizar aluno
-- DELETE `/alunos/{id}` → Deletar aluno
-
----
-
-### 👨‍🏫 Professores
-
-- POST `/professores` → Criar professor
-- GET `/professores` → Listar todos os professores
-- GET `/professores/{id}` → Buscar professor por ID
-- PUT `/professores/{id}` → Atualizar professor
-- DELETE `/professores/{id}` → Deletar professor
+| Método | Endpoint | Descrição |
+|---|---|---|
+| POST | `/matriculas` | Criar matrícula |
+| GET | `/matriculas` | Listar matrículas |
+| GET | `/matriculas/{id}` | Buscar matrícula por ID |
+| PATCH | `/matriculas/notas/{id}` | Atualizar notas |
+| PATCH | `/matriculas/trancar/{id}` | Trancar matrícula |
 
 ---
 
 ## 📸 Testes no Insomnia
 
-Aqui estão os testes realizados para validação dos endpoints:
+### GET Matrículas
 
-### Aluno
+![GET Matrículas](./prints/get_matriculas.png)
 
-![POST aluno](./prints/post_aluno.png)
-![GET alunos](./prints/get_alunos.png)
-![GET aluno por id](./prints/get_aluno_id.png)
-![PUT aluno](./prints/put_aluno.png)
-![DELETE aluno](./prints/delete_aluno.png)
+---
 
-### Professor
+### GET Matrícula por ID
 
-![POST professor](./prints/post_professor.png)
-![GET professores](./prints/get_professores.png)
-![GET professor por id](./prints/get_professor_id.png)
-![PUT professor](./prints/put_professor.png)
-![DELETE professor](./prints/delete_professor.png)
+![GET Matrícula ID](./prints/get_matricula_id.png)
+
+---
+
+### PATCH Atualizar Notas
+
+![PATCH Notas](./prints/patch_notas.png)
+
+---
+
+### PATCH Trancar Matrícula
+
+![PATCH Trancar](./prints/patch_trancar.png)
 
 ---
 
 ## 🗄️ Banco de Dados (DBeaver)
 
-### Tabela Aluno
+### Tabela matricula_aluno
 
-![Tabela aluno](./prints/tabela_aluno.png)
-
-### Tabela Professor
-
-![Tabela professor](./prints/tabela_professor.png)
+![Tabela Matrículas](./prints/tabela_matriculas.png)
