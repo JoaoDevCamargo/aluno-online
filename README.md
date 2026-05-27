@@ -74,7 +74,7 @@ src/main/java/aluno_online
 
 ### GET Matrículas
 
-![GET Matrículas](./prints/get_matriculas.png)
+![GET Matrículas](./prints/get_matricula.png)
 
 ---
 
